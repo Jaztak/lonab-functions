@@ -1,6 +1,6 @@
 void((function () {
 function cpsslow() {
-    var DELAY = 125;
+    var DELAY = prompt("what should the delay between clicks be? (ms)");
     var autoClickerStyleElement = document.createElement("style");
     autoClickerStyleElement.innerHTML = "*{cursor: crosshair !important;}";
     document.body.appendChild(autoClickerStyleElement);
