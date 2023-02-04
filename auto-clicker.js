@@ -1,6 +1,6 @@
-void((function () {
-function cpsslow() {
-    var DELAY = prompt("what should the delay between clicks be? (ms)");
+void((function() {
+  var DELAY = prompt("what should the delay between clicks be? (ms, enter zero for hyper speed)");
+  if (DELAY != null) {
     var autoClickerStyleElement = document.createElement("style");
     autoClickerStyleElement.innerHTML = "*{cursor: crosshair !important;}";
     document.body.appendChild(autoClickerStyleElement);
@@ -20,9 +20,35 @@ function cpsslow() {
       autoClick(e.target);
     }
 
+    function clickclick(element) {
+      element.click();
+      element.click();
+      element.click();
+      element.click();
+      element.click();
+      element.click();
+      element.click();
+      element.click();
+      element.click();
+      element.click();
+    }
+
     function autoClick(element) {
       if (element.classList.contains("auto-clicker-target")) {
-        element.click();
+        if (DELAY === 0) {
+          clickclick(element);
+          clickclick(element);
+          clickclick(element);
+          clickclick(element);
+          clickclick(element);
+          clickclick(element);
+          clickclick(element);
+          clickclick(element);
+          clickclick(element);
+          clickclick(element);
+        } else {
+          element.click();
+        }
         setTimeout(function() {
           autoClick(element);
         }, DELAY);
@@ -30,10 +56,4 @@ function cpsslow() {
     }
     document.body.addEventListener("click", addClicker, 0);
   }
-
-  function cpsslow_sub() {
-    setTimeout(function() {
-      cpsslow();
-    }, 10);
-  }
-  })(document));
+})(document));
