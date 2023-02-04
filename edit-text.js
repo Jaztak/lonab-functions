@@ -1,9 +1,7 @@
-if (edit) {
-      edit = false;
+if (document.body.contentEditable) {
       document.body.contentEditable = false;
       document.designMode = 'off';
-    } else {
-      edit = true;
+} else {
       document.body.contentEditable = true;
       document.designMode = 'on';
-    }
+}
