@@ -1,3 +1,24 @@
+function inputRecolor() {
+        var inputs = [0, 1, 2, 3, 4];
+        var x = 0;
+        while (x < inputs.length) {
+          try {
+
+            let val = document.getElementById("i" + x).value;
+            var color = "#000000";
+            if (val.includes("#")) {
+              var color = val;
+            } else {
+              var color = colourNameToHex(val.replace(" ", ""));
+            }
+            $("#" + x).css('background-color', "rgba(" + hexToRgb(color).r + ", " + hexToRgb(color).g + ", " + hexToRgb(color).b + ", 0.15)");
+            colors[x] = "rgba(" + hexToRgb(color).r + ", " + hexToRgb(color).g + ", " + hexToRgb(color).b + ", 0.9)"
+          } catch (err) {
+            $("#" + x).css('background-color', "rgba(255, 255, 255, 0.03)");
+          }
+          x = x + 1;
+        }
+      }
 function colourNameToHex(colour) {
         var colours = {
           "aliceblue": "#f0f8ff",
