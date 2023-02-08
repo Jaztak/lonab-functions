@@ -1,0 +1,2 @@
+$(".nabuttons").remove();
+$("#overlay").remove();
